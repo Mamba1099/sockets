@@ -39,7 +39,7 @@ def send_msg():
 
 
 def write():
-    message = f'{nickname}: (input(" "))'
+    message = f'{nickname}'
     client.send(message.encode('ascii'))
 
 recieve_thread = threading.Thread(target=recieve)
