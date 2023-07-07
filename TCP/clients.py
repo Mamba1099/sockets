@@ -1,9 +1,18 @@
 import socket
 import threading
+import argparse
+
+
+parser = argparse.ArgumentParser(description='fetch server host and port')
+parser.add_argument('-H', '--host', type=str, required=True, help='Ip address of the server')
+parser.add_argument('-p', '--port', type=int, required=True, help='port number of the server ')
+args = parser.parse_args()
+
 
 nickname = input('Choose a nickname: ')
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(('192.168.18.120', 5555))
+client.connect((args.host, args.port))
+
 
 def recieve():
     while True:

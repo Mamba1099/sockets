@@ -1,8 +1,14 @@
 import threading
 import socket
+import argparse
+
+
+parser = argparse.ArgumentParser(description='fetch port number')
+parser.add_argument('-p', '--port', type=int, required=True, help='port number of the server ')
+args = parser.parse_args()
 
 host = '0.0.0.0'
-port = 5555
+port = args.port
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((host, port))
